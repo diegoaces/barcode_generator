@@ -43,7 +43,12 @@ class HomePage extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            TextSpan(text: 'para seleccionar un archivo.'),
+                            TextSpan(
+                                text: 'para seleccionar un archivo excel.\n\n'),
+                            TextSpan(
+                                text:
+                                    'El archivo debe cumplir con la siguiente estructura: \n'),
+                            TextSpan(text: '| Código | Descripción | Precio |'),
                           ],
                         ),
                       ),

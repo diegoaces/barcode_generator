@@ -18,7 +18,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Material App',
+      title: 'BarCode Generator',
       routes: {
         '/': (context) => MultiBlocProvider(
               providers: [

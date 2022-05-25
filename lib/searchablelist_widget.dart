@@ -44,16 +44,18 @@ class _SearchableListState extends State<SearchableList> {
           ),
         ),
         Expanded(
-          child: ListView.builder(
-              shrinkWrap: true,
-              itemCount: items.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(items[index]),
-                  onTap: () => BlocProvider.of<BarcodeBloc>(context)
-                      .add(BarcodeBlocEventSelected(items[index])),
-                );
-              }),
+          child: items.isEmpty
+              ? const Text("No hay coincidencias.")
+              : ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: items.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      title: Text(items[index]),
+                      onTap: () => BlocProvider.of<BarcodeBloc>(context)
+                          .add(BarcodeBlocEventSelected(items[index])),
+                    );
+                  }),
         ),
       ],
     );
@@ -66,8 +68,10 @@ class _SearchableListState extends State<SearchableList> {
     if (query.isNotEmpty) {
       setState(() {
         items.clear();
-        items.addAll(
-            searchList.where((element) => element.contains(query)).toList());
+        items.addAll(searchList
+            .where((element) =>
+                element.toLowerCase().contains(query.toLowerCase()))
+            .toList());
       });
     } else {
       setState(() {
