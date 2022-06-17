@@ -196,7 +196,7 @@ class HomePage extends StatelessWidget {
   _barcode(List<String> texts) {
     return pdfw.Page(
       pageFormat: const PdfPageFormat(
-        110 * PdfPageFormat.mm,
+        111 * PdfPageFormat.mm,
         25 * PdfPageFormat.mm,
       ),
       build: (context) => pdfw.Center(
@@ -215,7 +215,7 @@ class HomePage extends StatelessWidget {
   _barcode2(List<String> texts) {
     return pdfw.Page(
       pageFormat: const PdfPageFormat(
-        85.6 * PdfPageFormat.mm,
+        75.6 * PdfPageFormat.mm,
         30 * PdfPageFormat.mm,
       ),
       build: (context) => pdfw.Center(
@@ -235,7 +235,7 @@ class HomePage extends StatelessWidget {
       children: [
         pdfw.Text(texts.first,
             style: const pdfw.TextStyle(
-              fontSize: 1.5 * PdfPageFormat.mm,
+              fontSize: 2.5 * PdfPageFormat.mm,
             )),
         pdfw.Container(height: 1 * PdfPageFormat.mm),
         pdfw.BarcodeWidget(
@@ -256,7 +256,7 @@ class HomePage extends StatelessWidget {
         pdfw.Text(
           texts[1],
           style: const pdfw.TextStyle(
-            fontSize: 1.2 * PdfPageFormat.mm,
+            fontSize: 1.6 * PdfPageFormat.mm,
           ),
         ),
       ],

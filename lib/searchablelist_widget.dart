@@ -50,8 +50,26 @@ class _SearchableListState extends State<SearchableList> {
                   shrinkWrap: true,
                   itemCount: items.length,
                   itemBuilder: (context, index) {
+                    String item = items[index];
+                    List<String> cols = item.split(',');
+
+                    if (cols.length == 1) {
+                      cols.add("");
+                      cols.add("");
+                    }
                     return ListTile(
-                      title: Text(items[index]),
+                      title: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Row(
+                            children: [
+                              Expanded(flex: 1, child: Text(cols[0])),
+                              Expanded(flex: 2, child: Text(cols[1])),
+                              Expanded(flex: 1, child: Text(cols[2])),
+                            ],
+                          ),
+                        ],
+                      ),
                       onTap: () => BlocProvider.of<BarcodeBloc>(context)
                           .add(BarcodeBlocEventSelected(items[index])),
                     );
